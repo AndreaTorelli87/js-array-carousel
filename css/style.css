@@ -7,6 +7,14 @@
    margin-top: 15vh;
 }
 
+.image-wrapper.show{
+   display: block;
+}
+
+.hide{
+   display: none;
+}
+
 .arrow{
    position: absolute;
    left: 50%;

@@ -6,7 +6,7 @@ let sliderContent = "";
 
 for (let i = 0; i < imageArray.length; i++) {
    const addImageWrapper = 
-   `<div class="image-wrapper h-100 d-none">
+   `<div class="image-wrapper h-100 hide">
       <img class="image w-100 h-100 object-fit-cover" src="${imageArray[i]}">
     </div>`;
    
@@ -15,8 +15,45 @@ for (let i = 0; i < imageArray.length; i++) {
 
 imagesDom.innerHTML = sliderContent;
 
-const addImageWrapperDom = document.getElementsByClassName('image-wrapper h-100 d-none');
+const addImageWrapperDom = document.getElementsByClassName("image-wrapper h-100 hide");
 
 let currentImage = 0;
 
-addImageWrapperDom[currentImage].classList.remove('d-none');
+addImageWrapperDom[currentImage].classList.add("show");
+
+const nextDom = document.querySelector("#next");
+const prevDom = document.querySelector("#prev");
+
+nextDom.addEventListener("click",
+   function(){
+
+      if (currentImage < addImageWrapperDom.length - 1) {
+         addImageWrapperDom[currentImage].classList.remove("show");
+         currentImage++;
+         addImageWrapperDom[currentImage].classList.add("show");
+
+         if (currentImage == addImageWrapperDom.length - 1) {
+            nextDom.classList.add("d-none");
+         }
+
+         prevDom.classList.remove("d-none");      
+      }
+   }
+)
+
+prevDom.addEventListener("click",
+   function(){
+
+      if (currentImage > 0) {
+         addImageWrapperDom[currentImage].classList.remove("show");
+         currentImage--;
+         addImageWrapperDom[currentImage].classList.add("show");
+
+         if (currentImage == 0) {
+            prevDom.classList.add("d-none");
+         }
+
+         nextDom.classList.remove("d-none");
+      }
+   }
+)
