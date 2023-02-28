@@ -1,25 +1,37 @@
 const imageArray = ["img/01.webp","img/02.webp","img/03.webp","img/04.webp","img/05.webp"]
 
 const imagesDom = document.getElementById("images");
+const thumbnailsDom = document.getElementById("thumbnails");
 
 let sliderContent = "";
+let thumbnailsContent = "";
 
 for (let i = 0; i < imageArray.length; i++) {
    const addImageWrapper = 
-   `<div class="image-wrapper h-100 hide">
-      <img class="image w-100 h-100 object-fit-cover" src="${imageArray[i]}">
-    </div>`;
+      `<div class="image-wrapper h-100 hide">
+         <img class="image w-100 h-100 object-fit-cover" src="${imageArray[i]}">
+      </div>`;
+   const addDivThumbnails = 
+      `<div class="thumbnail-wrapper brightness">
+         <img class="image w-100 h-100 object-fit-cover" src="${imageArray[i]}">
+      </div>`
    
    sliderContent += addImageWrapper;
+   thumbnailsContent += addDivThumbnails;
 }
 
 imagesDom.innerHTML = sliderContent;
+thumbnailsDom.innerHTML = thumbnailsContent;
 
 const addImageWrapperDom = document.getElementsByClassName("image-wrapper h-100 hide");
+const thumbnail = document.getElementsByClassName("thumbnail-wrapper");
+
+console.log(thumbnail);
 
 let currentImage = 0;
 
 addImageWrapperDom[currentImage].classList.add("show");
+thumbnail[currentImage].classList.remove("brightness");
 
 const nextDom = document.querySelector("#next");
 const prevDom = document.querySelector("#prev");
@@ -29,12 +41,16 @@ nextDom.addEventListener("click",
 
       if (currentImage < addImageWrapperDom.length - 1) {
          addImageWrapperDom[currentImage].classList.remove("show");
+         thumbnail[currentImage].classList.add("brightness");
          currentImage++;
-         addImageWrapperDom[currentImage].classList.add("show");   
+         addImageWrapperDom[currentImage].classList.add("show");
+         thumbnail[currentImage].classList.remove("brightness");
       } else {
          addImageWrapperDom[currentImage].classList.remove("show");
+         thumbnail[currentImage].classList.add("brightness");
          currentImage = 0;
-         addImageWrapperDom[currentImage].classList.add("show");    
+         addImageWrapperDom[currentImage].classList.add("show");
+         thumbnail[currentImage].classList.remove("brightness");
       }  
    }
 )
@@ -44,12 +60,16 @@ prevDom.addEventListener("click",
 
       if (currentImage > 0) {
          addImageWrapperDom[currentImage].classList.remove("show");
+         thumbnail[currentImage].classList.add("brightness");
          currentImage--;
          addImageWrapperDom[currentImage].classList.add("show");
+         thumbnail[currentImage].classList.remove("brightness");
       } else {
          addImageWrapperDom[currentImage].classList.remove("show");
+         thumbnail[currentImage].classList.add("brightness");
          currentImage = addImageWrapperDom.length - 1;
-         addImageWrapperDom[currentImage].classList.add("show");    
+         addImageWrapperDom[currentImage].classList.add("show");  
+         thumbnail[currentImage].classList.remove("brightness");
       }  
    }
 )
