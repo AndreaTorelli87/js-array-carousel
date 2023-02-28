@@ -30,14 +30,12 @@ nextDom.addEventListener("click",
       if (currentImage < addImageWrapperDom.length - 1) {
          addImageWrapperDom[currentImage].classList.remove("show");
          currentImage++;
-         addImageWrapperDom[currentImage].classList.add("show");
-
-         if (currentImage == addImageWrapperDom.length - 1) {
-            nextDom.classList.add("d-none");
-         }
-
-         prevDom.classList.remove("d-none");      
-      }
+         addImageWrapperDom[currentImage].classList.add("show");   
+      } else {
+         addImageWrapperDom[currentImage].classList.remove("show");
+         currentImage = 0;
+         addImageWrapperDom[currentImage].classList.add("show");    
+      }  
    }
 )
 
@@ -48,12 +46,10 @@ prevDom.addEventListener("click",
          addImageWrapperDom[currentImage].classList.remove("show");
          currentImage--;
          addImageWrapperDom[currentImage].classList.add("show");
-
-         if (currentImage == 0) {
-            prevDom.classList.add("d-none");
-         }
-
-         nextDom.classList.remove("d-none");
-      }
+      } else {
+         addImageWrapperDom[currentImage].classList.remove("show");
+         currentImage = addImageWrapperDom.length - 1;
+         addImageWrapperDom[currentImage].classList.add("show");    
+      }  
    }
 )
