@@ -2,9 +2,15 @@
    font-family: sans-serif;
 }
 
+body{
+   background-image: url(https://www.mobigaming.com/wp-content/uploads/2020/08/marvel-super-war-5w-1920x1080-1.jpg);
+   background-position: center;
+}
+
 #slider {
    height: 70vh;
    margin-top: 15vh;
+   box-shadow: 15px 15px 10px;
 }
 
 .image-wrapper.show{
@@ -25,7 +31,16 @@
    font-size: 2rem;
    border-radius: 50%;
    background-color: white;
+   cursor: pointer;
+   opacity: 0;
+   transition: opacity 2s;
 }
+
+#slider:hover .arrow {
+   opacity: 0.8;
+   transition: opacity 0s;
+}
+
 
 #next{
    bottom: 2%;
