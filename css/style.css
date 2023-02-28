@@ -2,3 +2,27 @@
    font-family: sans-serif;
 }
 
+#slider {
+   height: 70vh;
+   margin-top: 15vh;
+}
+
+.arrow{
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   display: flex;
+   align-items: center;
+   height: 2rem;
+   font-size: 2rem;
+   border-radius: 50%;
+   background-color: white;
+}
+
+#next{
+   bottom: 2%;
+}
+
+#prev{
+   top: 2%;
+}
