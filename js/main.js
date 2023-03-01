@@ -1,4 +1,4 @@
-const imageArray = ["img/01.webp","img/02.webp","img/03.webp","img/04.webp","img/05.webp"]
+const imageArray = ["img/1.webp","img/2.webp","img/3.webp","img/4.webp","img/5.webp","img/6.webp","img/7.webp","img/8.webp","img/9.webp","img/10.webp"]
 
 const imagesDom = document.getElementById("images");
 const thumbnailsDom = document.getElementById("thumbnails");
