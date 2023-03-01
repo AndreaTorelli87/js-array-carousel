@@ -78,7 +78,7 @@ for (let i = 0; i < imageArray.length; i++) {
 
    let pluto = pippo;
 
-   pluto.addEventListener("click",
+   pluto.addEventListener("mouseover", //"click"
       function(){
          
          addImageWrapperDom[currentImage].classList.remove("show");
